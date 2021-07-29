@@ -9,5 +9,5 @@
 	<classpathentry kind="lib" path="lib/tomcat-embed-el.jar"/>
 	<classpathentry kind="lib" path="lib/tomcat-embed-jasper.jar"/>
 	<classpathentry kind="lib" path="lib/tomcat-embed-websocket.jar"/>
-	<classpathentry kind="output" path="webapp/WEB-INF/classes"/>
+	<classpathentry kind="output" path="WebContent/WEB-INF/classes"/>
 </classpath>
