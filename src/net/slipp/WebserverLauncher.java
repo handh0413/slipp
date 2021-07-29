@@ -7,7 +7,7 @@ import org.apache.catalina.startup.Tomcat;
 
 public class WebserverLauncher {
 	public static void main(String[] args) throws Exception {
-		String webappDirLocation = "webapp/";
+		String webappDirLocation = "WebContent/";
 		Tomcat tomcat = new Tomcat();
 		String webPort = System.getenv("PORT");
 		if (webPort == null || webPort.isEmpty()) {
