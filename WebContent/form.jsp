@@ -15,9 +15,8 @@
 				<div class="page-header">
 					<h1>회원가입</h1>
 				</div>
-			
 				
-				<form class="form-horizontal" action="/form_action.jsp" method="post">
+				<form class="form-horizontal" action="/users/save" method="post">
 					<div class="control-group">
 						<label class="control-label" for="userId">사용자 아이디</label>
 						<div class="controls">
