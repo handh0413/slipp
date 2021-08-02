@@ -5,7 +5,7 @@ import java.util.Map;
 
 import net.slipp.user.User;
 
-public class DataBase {
+public class Database {
 	private static Map<String, User> users = new HashMap<>();
 	
 	public static void addUser(User user) {

@@ -1,5 +1,7 @@
 package net.slipp.user;
 
+import net.slipp.db.Database;
+
 public class User {
 	private String userId;
 	private String password;
@@ -49,6 +51,23 @@ public class User {
 	@Override
 	public String toString() {
 		return "User [userId=" + userId + ", password=" + password + ", name=" + name + ", email=" + email + "]";
+	}
+
+	public boolean matchPassword(String newPassword) {
+		return password.equals(newPassword);
+	}
+
+	public static boolean login(String userId, String password) throws UserNotFoundException, PasswordMismatchException {
+		User user = Database.findById(userId);
+		if (user == null) {
+			throw new UserNotFoundException();
+		}
+		
+		if (!user.matchPassword(password)) {
+			throw new PasswordMismatchException();
+		}
+		
+		return true;
 	}
 	
 }
