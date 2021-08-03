@@ -10,6 +10,7 @@ import org.junit.Test;
 
 public class UserDAOTest {
 	UserDAO userDao;
+	private static User TEST_USER = new User("donghee.han", "1234", "한동희", "donghee.han@test.com");
 	
 	@Before
 	public void setup() {
@@ -25,7 +26,19 @@ public class UserDAOTest {
 	@Test
 	@Ignore
 	public void insert() throws Exception {
-		User user = new User("donghee.han2", "1234", "한동희2", "donghee.han2@test.com");
-		userDao.insert(user);
+		User user = TEST_USER;
+		userDao.addUser(user);
+	}
+	
+	@Test
+	public void findById() throws Exception {
+		User user = userDao.findById(TEST_USER.getUserId());
+		assertNotNull(user);
+	}
+	
+	@Test
+	public void findById2() throws Exception {
+		User user = userDao.findById(TEST_USER.getUserId());
+		assertEquals(user, TEST_USER);
 	}
 }
