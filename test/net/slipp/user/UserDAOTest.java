@@ -31,6 +31,11 @@ public class UserDaoTest {
 
 		User dbUser = userDao.findById(user.getUserId());
 		assertEquals(user, dbUser);
+		
+		User updateUser = new User(user.getUserId(), "update pw", "update nm", "update email");
+		userDao.updateUser(updateUser);
+		dbUser = userDao.findById(updateUser.getUserId());
+		assertEquals(updateUser, dbUser);
 	}
 	
 	@Test

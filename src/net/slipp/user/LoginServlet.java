@@ -12,17 +12,18 @@ import javax.servlet.http.HttpSession;
 
 @WebServlet("/users/login")
 public class LoginServlet extends HttpServlet {
+	public static final String SESSION_USER_ID = "userId";
 	private static final long serialVersionUID = 1L;
 	
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String userId = request.getParameter("userId");
+		String userId = request.getParameter(SESSION_USER_ID);
 		String password = request.getParameter("password");
 		HttpSession session = request.getSession();
 		
 		try {
 			User.login(userId, password);
-			session.setAttribute("userId", userId);
+			session.setAttribute(SESSION_USER_ID, userId);
 			response.sendRedirect("/");
 		} catch (UserNotFoundException e) {
 			forwardJsp(request, response, "존재하지 않는 사용자 입니다.");
