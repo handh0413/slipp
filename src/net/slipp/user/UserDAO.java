@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 
 
-public class UserDAO {
+public class UserDao {
 	
 	public Connection getConnection() {
 		String url = "jdbc:mysql://localhost:3306/slipp_dev?useUnicode=true&characterEncoding=UTF-8";
@@ -31,6 +31,14 @@ public class UserDAO {
 		pstmt.setString(2, user.getPassword());
 		pstmt.setString(3, user.getName());
 		pstmt.setString(4, user.getEmail());
+		pstmt.executeUpdate();
+	}
+	
+	public void removeUser(String userId) throws SQLException {
+		String sql = "DELETE FROM USERS WHERE userId = ?";
+		Connection conn = getConnection();
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, userId);
 		pstmt.executeUpdate();
 	}
 

@@ -58,7 +58,7 @@ public class User {
 	}
 
 	public static boolean login(String userId, String password) throws UserNotFoundException, PasswordMismatchException {
-		UserDAO userDAO = new UserDAO();
+		UserDao userDAO = new UserDao();
 		User user = null;
 		
 		try {

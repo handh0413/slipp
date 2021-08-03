@@ -22,7 +22,7 @@ public class SaveUserServlet extends HttpServlet {
 		String email = request.getParameter("email");
 		
 		User user = new User(userId, password, name, email);
-		UserDAO userDAO = new UserDAO();
+		UserDao userDAO = new UserDao();
 		try {
 			userDAO.addUser(user);
 		} catch (SQLException e) {
