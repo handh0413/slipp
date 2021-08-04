@@ -28,6 +28,8 @@ public class CreateUserServlet extends HttpServlet {
 		String email = request.getParameter("email");
 		
 		User user = new User(userId, password, name, email);
+		request.setAttribute("user", user);
+		
 		Validator validator = MyValidatorFactory.createValidator();
 		Set<ConstraintViolation<User>> constraintViolations = validator.validate(user);
 		if (constraintViolations.size() > 0) {

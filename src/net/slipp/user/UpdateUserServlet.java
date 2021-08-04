@@ -40,11 +40,12 @@ public class UpdateUserServlet extends HttpServlet {
 		String name = request.getParameter("name");
 		String email = request.getParameter("email");
 		User user = new User(userId, password, name, email);
-		request.setAttribute("user", user);
 		
 		Validator validator = MyValidatorFactory.createValidator();
 		Set<ConstraintViolation<User>> constraintViolations = validator.validate(user);
 		if (constraintViolations.size() > 0) {
+			request.setAttribute("user", user);
+			request.setAttribute("isUpdate", true);
 			ConstraintViolation<User> constraintViolation = constraintViolations.iterator().next();
 			String errorMessage = constraintViolation.getPropertyPath() + " : " + constraintViolation.getMessage();
 			forwardJsp(request, response, errorMessage);
