@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/users/save")
-public class SaveUserServlet extends HttpServlet {
+public class CreateUserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Override
