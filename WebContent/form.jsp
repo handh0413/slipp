@@ -24,12 +24,17 @@
 				</c:choose>
 				</div>
 				
-				<c:set var="actionUrl" value="/users/create"/>
+				<c:set var="actionUrl" value="/users/save"/>
 				<c:if test="${not empty user.userId}">
 				<c:set var="actionUrl" value="/users/update"/>
 				</c:if>
 				
 				<form class="form-horizontal" action="${actionUrl}" method="post">
+				<c:if test="${requestScope.errorMessage != null}">
+					<div class="control-group">
+						<label class="error"><c:out value="${requestScope.errorMessage}"/></label>
+					</div>
+				</c:if>
 					<div class="control-group">
 						<label class="control-label" for="userId">사용자 아이디</label>
 						<div class="controls">

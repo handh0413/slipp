@@ -9,7 +9,7 @@ public class SessionUtils {
 	}
 	
 	public static String getStringValue(HttpSession session, String key) {
-		if (!isEmpty(session, key)) {
+		if (isEmpty(session, key)) {
 			return null;
 		}
 		return (String) session.getAttribute(key);
