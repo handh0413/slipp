@@ -77,6 +77,13 @@ public class User {
 	public String toString() {
 		return "User [userId=" + userId + ", password=" + password + ", name=" + name + ", email=" + email + "]";
 	}
+	
+	public boolean isSameUser(String newUserId) {
+		if (this.userId == null) {
+			return false;
+		}
+		return this.userId.equals(newUserId);
+	}
 
 	public boolean matchPassword(String newPassword) {
 		return password.equals(newPassword);
